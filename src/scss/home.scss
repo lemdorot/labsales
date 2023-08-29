@@ -484,10 +484,12 @@
             justify-content: space-between;
             height: 100%;
             gap: rem(28);
-            width: rem(292);
+            width: rem(262);
             & img {
                 border-radius: 10px;
                 overflow: hidden;
+                width: rem(262);
+                height: rem(171);
             }
         }
 
