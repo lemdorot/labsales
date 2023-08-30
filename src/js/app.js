@@ -15,47 +15,46 @@ flsFunctions.tabs();
 //============================================================================================================================================================================================================================================
 
 const menu_links = document.querySelectorAll('.menu__link');
-if (window.matchMedia("(max-width: 992px)").matches) {
+	debugger;
     menu_links.forEach((elem) => {
         elem.addEventListener('click', (e) => {
             e.preventDefault();
-            console.log(elem.classList);
-    
-            if (elem.nextSibling) { 
-                while (elem.parentNode.children) {
-                    if (elem.nextElementSibling.classList.contains('menu__list')) {
-                        if (elem.classList.contains('active')) {
-                            elem.classList.remove('active');
-                            elem.nextElementSibling.style.maxHeight = elem.nextElementSibling.scrollHeight + 'px';
-                            elem.nextElementSibling.style.paddingTop = 0;
-                            setTimeout(() => {
-                                elem.nextElementSibling.style.maxHeight = 0;
-                            }, 5)
-                            
-                            setTimeout(() => {
-                                elem.nextElementSibling.style.display = 'none';
-                            }, 600)
-                            break;
-                        } else {
-                            elem.classList.add('active');
-                            elem.nextElementSibling.style.display = 'flex';
-                            setTimeout(() => {
-                                elem.nextElementSibling.style.maxHeight = elem.nextElementSibling.scrollHeight + 30 + 'px';
-                                elem.nextElementSibling.style.paddingTop = '15px';
-                            }, 5)
-                            setTimeout(() => {
-                                elem.nextElementSibling.style.maxHeight = 'none';
-                            }, 400)
-                            break;
-                        }
-                        
-                        
-                    }
-                }
-            }
+			if (window.matchMedia("(min-width: 992px)").matches) {
+				return;
+			}
+			if (elem.nextSibling) { 
+				while (elem.parentNode.children) {
+					if (elem.nextElementSibling.classList.contains('menu__list')) {
+						if (elem.classList.contains('active')) {
+							elem.classList.remove('active');
+							elem.nextElementSibling.style.maxHeight = elem.nextElementSibling.scrollHeight + 'px';
+							elem.nextElementSibling.style.paddingTop = 0;
+							setTimeout(() => {
+								elem.nextElementSibling.style.maxHeight = 0;
+							}, 5)
+							
+							setTimeout(() => {
+								elem.nextElementSibling.style.display = 'none';
+							}, 600)
+							break;
+						} else {
+							elem.classList.add('active');
+							elem.nextElementSibling.style.display = 'flex';
+							setTimeout(() => {
+								elem.nextElementSibling.style.maxHeight = elem.nextElementSibling.scrollHeight + 30 + 'px';
+								elem.nextElementSibling.style.paddingTop = '15px';
+							}, 5)
+							setTimeout(() => {
+								elem.nextElementSibling.style.maxHeight = 'none';
+							}, 400)
+							break;
+						}
+					}
+				}
+			}
         })
     })
-}
+
 //============================================================================================================================================================================================================================================
 
 function initSliders() {
